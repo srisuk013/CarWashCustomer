@@ -1,5 +1,6 @@
 package com.srisuk.carwashcustomer
 
+import com.srisuk.carwashcustomer.model.response.UserInfoResponse
 import com.srisuk.carwashcustomer.model.response.HistoryResponse
 import com.srisuk.carwashcustomer.model.request.LoginRequest
 import com.srisuk.carwashcustomer.model.response.LoginResponse
@@ -14,4 +15,7 @@ interface AppService {
 
     @GET("api/Customer/History")
     suspend fun history(@Query("DateBegin")DateBegin: Long?,@Query("DateEnd")DateEnd: Long?): HistoryResponse
+
+    @GET("api/account/userinfo")
+    suspend fun  userinfo(): UserInfoResponse
 }

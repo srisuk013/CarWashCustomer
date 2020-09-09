@@ -2,6 +2,9 @@ package com.srisuk.carwashcustomer.di
 
 import com.srisuk.carwashcustomer.*
 import com.srisuk.carwashcustomer.data.NetworkHeaderInterceptor
+import com.srisuk.carwashcustomer.viewmodel.HistoryViewModel
+import com.srisuk.carwashcustomer.viewmodel.LoginViewModel
+import com.srisuk.carwashcustomer.viewmodel.ProfileViewModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -30,4 +33,5 @@ val appModule = module {
     single<AppReposistory> { AppRepositoryIml(get()) }
     viewModel { LoginViewModel(get()) }
     viewModel { HistoryViewModel(get()) }
+    viewModel { ProfileViewModel(get()) }
 }

@@ -3,17 +3,17 @@ package com.srisuk.carwashcustomer.model
 
 import com.google.gson.annotations.SerializedName
 
-data class UserInfo(
+data class UserInfoX(
     @SerializedName("Code")
-    val code: String?=null,
+    val code: String,
     @SerializedName("FullName")
-    val fullName: String?=null,
+    val fullName: String,
     @SerializedName("IdCardNumber")
-    val idCardNumber: String?=null,
+    val idCardNumber: String,
     @SerializedName("Image")
-    val image: String?=null,
+    val image: String,
     @SerializedName("Phone")
-    val phone: String?=null,
+    val phone: String,
     @SerializedName("UserId")
     val userId: Int
 )

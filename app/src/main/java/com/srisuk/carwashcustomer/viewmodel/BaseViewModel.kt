@@ -1,4 +1,4 @@
-package com.srisuk.carwashcustomer.base
+package com.srisuk.carwashcustomer.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

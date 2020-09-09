@@ -1,8 +1,8 @@
-package com.srisuk.carwashcustomer
+package com.srisuk.carwashcustomer.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.srisuk.carwashcustomer.base.BaseViewModel
+import com.srisuk.carwashcustomer.AppReposistory
 import com.srisuk.carwashcustomer.model.request.LoginRequest
 import com.srisuk.carwashcustomer.model.response.LoginResponse
 import kotlinx.coroutines.launch

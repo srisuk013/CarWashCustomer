@@ -3,7 +3,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.srisuk.carwashcustomer.base.BaseFragment
-import com.srisuk.carwashcustomer.model.response.HistoryResponse
+import com.srisuk.carwashcustomer.viewmodel.HistoryViewModel
 import kotlinx.android.synthetic.main.fragment_history.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

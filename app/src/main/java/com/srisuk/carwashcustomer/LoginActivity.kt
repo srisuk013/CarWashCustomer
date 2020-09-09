@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.srisuk.carwashcustomer.base.BaseActivity
 import com.srisuk.carwashcustomer.model.request.LoginRequest
+import com.srisuk.carwashcustomer.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
