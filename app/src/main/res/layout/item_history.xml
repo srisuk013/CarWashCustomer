@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/StyleCardView"
+    app:contentPadding="@dimen/base_pow_three">
+
+    <RelativeLayout style="@style/MatchWrap">
+
+        <GridLayout
+            style="@style/MatchWrap"
+            android:layout_centerVertical="true"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <ImageView
+                style="@style/ImageViewIcon"
+                android:layout_marginTop="@dimen/base_zero"
+                android:src="@drawable/ic_person_gray" />
+
+            <TextView
+                android:id="@+id/tv_full_name"
+                style="@style/TextViewLargeApplicationSub"
+                android:layout_marginTop="@dimen/base_zero"
+                android:text="@string/full_name"
+                android:textSize="@dimen/text_medium" />
+
+            <ImageView
+                style="@style/ImageViewIcon"
+                android:src="@drawable/ic_time_gray" />
+
+            <TextView
+                android:id="@+id/tv_date_time"
+                style="@style/TextViewLargeApplicationSub"
+                android:text="@string/date_time"
+                android:textSize="@dimen/text_medium" />
+
+        </GridLayout>
+
+        <androidx.cardview.widget.CardView
+            style="@style/CardViewImageView"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="@dimen/base_pow_two">
+
+            <ImageView
+                android:id="@+id/iv_photo"
+                style="@style/ImageViewPhotoSub" />
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

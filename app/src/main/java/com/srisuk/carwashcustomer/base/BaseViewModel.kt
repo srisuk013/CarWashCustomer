@@ -8,10 +8,12 @@ import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel(), CoroutineScope {
 
+
     private val job = SupervisorJob()
     private val exceptionHandler = CoroutineExceptionHandler { _, error ->
         _error.value = error
     }
+
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + exceptionHandler + job
 
