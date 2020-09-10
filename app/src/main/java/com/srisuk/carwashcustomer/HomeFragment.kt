@@ -1,18 +1,36 @@
-package com.srisuk.navigationview
+package com.srisuk.carwashcustomer
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.srisuk.carwashcustomer.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.srisuk.carwashcustomer.base.BaseFragment
+import com.srisuk.carwashcustomer.extension.toast
+import com.srisuk.carwashcustomer.viewmodel.PackageViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+class HomeFragment : BaseFragment(R.layout.fragment_home) {
+    private val viewModel by viewModel<PackageViewModel>()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val adt = PackageAdapter()
+        recycler_view1.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = adt
+
+        }
+        viewModel.showpackage()
+        viewModel.response.observe { response ->
+            adt.setList(response.packageCar)
+
+        }
+
+        viewModel.error.observeError()
+
+        adt.onClick = {
+            context?.toast(it.toString())
+        }
+
     }
 }
+

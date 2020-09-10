@@ -1,5 +1,6 @@
 package com.srisuk.carwashcustomer
 
+import com.srisuk.carwashcustomer.model.PackageResponse
 import com.srisuk.carwashcustomer.model.response.UserInfoResponse
 import com.srisuk.carwashcustomer.model.response.HistoryResponse
 import com.srisuk.carwashcustomer.model.request.LoginRequest
@@ -18,4 +19,7 @@ interface AppService {
 
     @GET("api/account/userinfo")
     suspend fun  userinfo(): UserInfoResponse
+
+    @GET("api/Customer/ShowPackage")
+    suspend fun showpackage():PackageResponse
 }

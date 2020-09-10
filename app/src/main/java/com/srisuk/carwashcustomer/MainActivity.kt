@@ -1,10 +1,9 @@
 package com.srisuk.carwashcustomer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.srisuk.navigationview.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -15,6 +14,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         bottom_navigation.setOnNavigationItemSelectedListener(navListener)
+        if (savedInstanceState == null)
+            replaceFragment(HomeFragment())
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(
+            R.id.fragment_container,
+            fragment
+        ).commit()
     }
 
     private val navListener: BottomNavigationView.OnNavigationItemSelectedListener =
@@ -24,10 +32,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_history -> HistoryFragment()
                 else -> ProfileFragment()
             }
-            supportFragmentManager.beginTransaction().replace(
-                R.id.fragment_container,
-                selectedFragment
-            ).commit()
+            replaceFragment(selectedFragment)
             true
         }
 

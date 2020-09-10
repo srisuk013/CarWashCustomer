@@ -4,6 +4,7 @@ import com.srisuk.carwashcustomer.*
 import com.srisuk.carwashcustomer.data.NetworkHeaderInterceptor
 import com.srisuk.carwashcustomer.viewmodel.HistoryViewModel
 import com.srisuk.carwashcustomer.viewmodel.LoginViewModel
+import com.srisuk.carwashcustomer.viewmodel.PackageViewModel
 import com.srisuk.carwashcustomer.viewmodel.ProfileViewModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -34,4 +35,5 @@ val appModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { HistoryViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
+    viewModel { PackageViewModel(get()) }
 }
