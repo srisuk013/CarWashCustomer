@@ -1,5 +1,6 @@
 package com.srisuk.carwashcustomer
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,7 +29,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         viewModel.error.observeError()
 
         adt.onClick = {
-            context?.toast(it.toString())
+            Intent(context, ChoosePackageActivity::class.java).apply {
+                putExtra("ChoosePackageActivity", it)
+                startActivity(this)
+            }
         }
 
     }
