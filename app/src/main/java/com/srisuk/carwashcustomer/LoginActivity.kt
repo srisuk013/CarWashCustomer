@@ -34,7 +34,6 @@ class LoginActivity : BaseActivity() {
         bt_sign_in.setOnClickListener {
             viewModel.login(LoginRequest(et_username.text.toString(), et_password.text.toString()))
 
-
         }
     }
 }

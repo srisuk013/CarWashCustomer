@@ -1,5 +1,6 @@
 package com.srisuk.carwashcustomer
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.srisuk.carwashcustomer.extension.toast
@@ -17,6 +18,9 @@ class ChoosePackageActivity : AppCompatActivity() {
             tv_2.text =packageCar.description
             tv_3.text ="B"+packageCar.price
         }
-       // toast(packageCar.toString())
+     btn_ChoosePackage.setOnClickListener {
+          val intent = Intent(baseContext, ChooseCarActivity::class.java)
+         startActivity(intent);
+     }
     }
 }
