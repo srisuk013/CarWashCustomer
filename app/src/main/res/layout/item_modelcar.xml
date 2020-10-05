@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_phone"
+            style="@style/EditText"
+            android:layout_gravity="center"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            android:drawableStart="@drawable/ic_car_gray"
+            android:hint="Vehicle registration" />
+    </RelativeLayout>
+
+    <Spinner
+        style="@style/not"
+        android:layout_gravity="center"
+        android:id="@+id/spinnerProvice" />
+    <Spinner
+        style="@style/not"
+        android:layout_gravity="center"
+        android:id="@+id/spinnerBrand"/>
+    <Spinner
+        style="@style/not"
+        android:layout_gravity="center"
+        android:id="@+id/spinnerModel"/>
+
+
+</LinearLayout>

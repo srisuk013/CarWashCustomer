@@ -1,18 +1,14 @@
 package com.srisuk.carwashcustomer
 
-import com.srisuk.carwashcustomer.model.response.MyCarResponse
-import com.srisuk.carwashcustomer.model.response.PackageResponse
-import com.srisuk.carwashcustomer.model.response.UserInfoResponse
-import com.srisuk.carwashcustomer.model.response.HistoryResponse
 import com.srisuk.carwashcustomer.model.request.LoginRequest
-import com.srisuk.carwashcustomer.model.response.LoginResponse
+import com.srisuk.carwashcustomer.model.response.*
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface AppService {
-    @POST("api/account/Login/")
+    @POST("api/account/Login")
     suspend fun  login(@Body login: LoginRequest): LoginResponse
 
     @GET("api/Customer/History")
@@ -26,4 +22,7 @@ interface AppService {
 
     @GET("api/Customer/ChooseCar")
     suspend fun choosecar(): MyCarResponse
+
+    @GET("api/Customer/ListCarInformation")
+    suspend fun modelcar():ModelCarResponse
 }

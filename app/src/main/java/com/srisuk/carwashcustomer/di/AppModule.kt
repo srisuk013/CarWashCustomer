@@ -22,7 +22,7 @@ val appModule = module {
 
     single<Retrofit> {
         Retrofit.Builder()
-            .baseUrl("https://dev.chococrm.com:10004/")
+            .baseUrl("https://sncarwash.azurewebsites.net/")
             .client(get<OkHttpClient>())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -35,4 +35,5 @@ val appModule = module {
     viewModel { PackageViewModel(get()) }
     viewModel { ChooseCarViewModel(get()) }
     viewModel { MyCarViewModel(get ()) }
+    viewModel { AddMyCarViewModel(get()) }
 }

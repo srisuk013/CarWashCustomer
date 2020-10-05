@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignUpActivity">
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        style="@style/MatchWrap"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar style="@style/Toolbar" />
+
+        <ImageView
+            android:id="@+id/iv_arrow_back"
+            style="@style/ImageViewArrowBack" />
+
+        <ImageView
+            style="@style/ImageViewToolbar"
+            android:src="@drawable/ic_sign_up" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/item_sign_up"
+            />
+    </ScrollView>
+
+
+</LinearLayout>

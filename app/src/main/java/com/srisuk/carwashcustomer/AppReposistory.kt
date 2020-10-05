@@ -9,6 +9,8 @@ interface AppReposistory{
     suspend fun  userinfo(): UserInfoResponse
     suspend fun  showpackage(): PackageResponse
     suspend fun choosecar():MyCarResponse
+    suspend fun modelcar():ModelCarResponse
+
 }
 class AppRepositoryIml(private var api: AppService):AppReposistory{
     override suspend fun login(login: LoginRequest) : LoginResponse =api.login(login)
@@ -16,4 +18,5 @@ class AppRepositoryIml(private var api: AppService):AppReposistory{
     override suspend fun userinfo(): UserInfoResponse =api.userinfo()
     override suspend fun showpackage(): PackageResponse =api.showpackage()
     override suspend fun choosecar():MyCarResponse=api.choosecar()
+    override suspend fun modelcar():ModelCarResponse=api.modelcar()
 }

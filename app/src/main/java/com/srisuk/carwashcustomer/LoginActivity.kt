@@ -3,6 +3,7 @@ package com.srisuk.carwashcustomer
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.srisuk.carwashcustomer.base.BaseActivity
 import com.srisuk.carwashcustomer.model.request.LoginRequest
@@ -22,7 +23,7 @@ class LoginActivity : BaseActivity() {
                 preferences.edit()
                     .putString("access_token", it.token.accessToken)
                     .apply()
-                val intent = Intent(baseContext, MainActivity::class.java)
+                val intent = Intent(baseContext, AddMyCarActivity::class.java)
                 startActivity(intent);
             }
 
@@ -34,6 +35,13 @@ class LoginActivity : BaseActivity() {
         bt_sign_in.setOnClickListener {
             viewModel.login(LoginRequest(et_username.text.toString(), et_password.text.toString()))
 
+//            val login = LoginRequest(et_username.text.toString(), et_password.text.toString())
+//            Log.d(TAG, "onCreate: $login")
         }
     }
+
+    companion object{
+        private const val TAG = "LoginActivity"
+    }
+
 }
