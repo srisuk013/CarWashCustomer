@@ -1,6 +1,7 @@
 package com.srisuk.carwashcustomer
 
 import com.srisuk.carwashcustomer.model.CarModelResponse
+import com.srisuk.carwashcustomer.model.request.ChangePasswordRequest
 import com.srisuk.carwashcustomer.model.request.LoginRequest
 import com.srisuk.carwashcustomer.model.response.*
 import retrofit2.http.Body
@@ -32,4 +33,7 @@ interface AppService {
 
     @GET("api/Customer/Model")
     suspend fun listcarmodel(@Query("brandid")BrandId :Int):CarModelResponse
+
+    @POST("api/account/changePassword")
+    suspend fun changepassword(@Body changepassword: ChangePasswordRequest):BaseResponse
 }

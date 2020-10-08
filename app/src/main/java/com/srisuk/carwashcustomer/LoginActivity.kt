@@ -23,7 +23,7 @@ class LoginActivity : BaseActivity() {
                 preferences.edit()
                     .putString("access_token", it.token.accessToken)
                     .apply()
-                val intent = Intent(baseContext, AddMyCarActivity::class.java)
+                val intent = Intent(baseContext, ChangePasswordActivity::class.java)
                 startActivity(intent);
             }
 

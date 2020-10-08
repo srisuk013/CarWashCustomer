@@ -36,4 +36,5 @@ val appModule = module {
     viewModel { ChooseCarViewModel(get()) }
     viewModel { MyCarViewModel(get ()) }
     viewModel { AddMyCarViewModel(get()) }
+    viewModel { ChangePasswordViewModel(get()) }
 }
