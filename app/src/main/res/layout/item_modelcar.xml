@@ -26,7 +26,7 @@
     <Spinner
         style="@style/not"
         android:layout_gravity="center"
-        android:id="@+id/spinnerBrand"/>
+        android:id="@+id/spinnerProvince"/>
     <Spinner
         style="@style/not"
         android:layout_gravity="center"

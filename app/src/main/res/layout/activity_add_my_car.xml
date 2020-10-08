@@ -23,15 +23,39 @@
             android:src="@drawable/ic_my_car" />
 
     </RelativeLayout>
-<!--    <include-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        layout="@layout/item_modelcar"-->
-<!--        />-->
-
+<LinearLayout
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        style="@style/not"
+        android:drawableStart="@drawable/ic_car_gray"
+        android:layout_gravity="center"
+        android:hint="Vehicle registration"
+        android:id="@+id/edt_VehicleRegistration" />
+    <Spinner
+        style="@style/not"
+        android:layout_gravity="center"
+        android:id="@+id/spinnerProvince" />
     <Spinner
         style="@style/not"
         android:layout_gravity="center"
         android:id="@+id/spinnerBrand" />
+    <Spinner
+        style="@style/not"
+        android:layout_gravity="center"
+        android:id="@+id/spinnerModel" />
+
+</LinearLayout>
+    <Button
+        android:layout_marginTop="250dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/bt_save"
+        style="@style/ButtonBlueLong"
+        android:textSize="15dp"
+        android:text="save" />
 
 </LinearLayout>

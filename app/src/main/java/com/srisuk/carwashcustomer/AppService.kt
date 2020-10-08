@@ -1,5 +1,6 @@
 package com.srisuk.carwashcustomer
 
+import com.srisuk.carwashcustomer.model.CarModelResponse
 import com.srisuk.carwashcustomer.model.request.LoginRequest
 import com.srisuk.carwashcustomer.model.response.*
 import retrofit2.http.Body
@@ -23,6 +24,12 @@ interface AppService {
     @GET("api/Customer/ChooseCar")
     suspend fun choosecar(): MyCarResponse
 
+    @GET("api/Customer/Province")
+    suspend fun modelcar():ProvinceModelResponse
+
     @GET("api/Customer/ListCarInformation")
-    suspend fun modelcar():ModelCarResponse
+    suspend fun modelbrand():BrandCarModelResponse
+
+    @GET("api/Customer/Model")
+    suspend fun listcarmodel(@Query("brandid")BrandId :Int):CarModelResponse
 }

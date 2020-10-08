@@ -2,13 +2,13 @@ package com.srisuk.carwashcustomer.model.response
 
 
 import com.google.gson.annotations.SerializedName
-import com.srisuk.carwashcustomer.model.Shows
+import com.srisuk.carwashcustomer.model.Brand
 
-data class ModelCarResponse(
+data class BrandCarModelResponse(
+    @SerializedName("Brand")
+    val brand: Brand,
     @SerializedName("Message")
     val message: String,
-    @SerializedName("Shows")
-    val shows: Shows,
     @SerializedName("Success")
     val success: Boolean
 )
