@@ -1,4 +1,4 @@
-package com.srisuk.carwashcustomer.extension
+package com.srisuk.carwashcustomer.util.extension
 
 import android.content.Context
 import android.widget.Toast

@@ -1,6 +1,7 @@
 package com.srisuk.carwashcustomer
 
 import com.srisuk.carwashcustomer.model.CarModelResponse
+import com.srisuk.carwashcustomer.model.PackageAllResponse
 import com.srisuk.carwashcustomer.model.request.ChangePasswordRequest
 import com.srisuk.carwashcustomer.model.request.LoginRequest
 import com.srisuk.carwashcustomer.model.response.*
@@ -15,6 +16,7 @@ interface AppReposistory{
     suspend fun modelbrand():BrandCarModelResponse
     suspend fun carmodel(BrandId:Int):CarModelResponse
     suspend fun changepassword(change: ChangePasswordRequest):BaseResponse
+    suspend fun packageall(): PackageAllResponse
 
 }
 class AppRepositoryIml(private var api: AppService):AppReposistory{
@@ -27,4 +29,5 @@ class AppRepositoryIml(private var api: AppService):AppReposistory{
     override suspend fun modelbrand():BrandCarModelResponse =api.modelbrand()
     override suspend fun carmodel(BrandId:Int):CarModelResponse =api.listcarmodel(BrandId)
     override suspend fun changepassword(change: ChangePasswordRequest):BaseResponse=api.changepassword(change)
+    override suspend fun packageall():PackageAllResponse=api.packageall()
 }

@@ -1,4 +1,4 @@
-package com.srisuk.carwashcustomer.extension
+package com.srisuk.carwashcustomer.util.extension
 
 import android.widget.ImageView
 import androidx.annotation.DrawableRes

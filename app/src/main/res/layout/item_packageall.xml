@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+
+    <TextView
+        android:id="@+id/tv_namepackageall"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp" />
+
+    <ImageView
+        android:id="@+id/iv_carimage"
+        android:src="@drawable/car_parts"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="40dp" />
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="200dp"
+        android:layout_height="wrap_content">
+    <TextView
+        android:text="S"
+        android:id="@+id/tv_pr1"
+        android:textStyle="bold"
+        android:layout_marginEnd="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+        <TextView
+            android:text="M"
+            android:id="@+id/tv_pr2"
+            android:textStyle="bold"
+            android:layout_marginEnd="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"   />
+        <TextView
+            android:text="L"
+            android:id="@+id/tv_pr3"
+            android:textStyle="bold"
+            android:layout_marginEnd="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"  />
+        <TextView
+            android:text="XL"
+            android:id="@+id/tv_pr4"
+            android:textStyle="bold"
+            android:layout_marginEnd="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"   />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="280dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="50dp"
+            android:id="@+id/text_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="50dp"
+            android:id="@+id/text_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="50dp"
+            android:id="@+id/text_l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="50dp"
+            android:id="@+id/text_xl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider" />
+
+
+</RelativeLayout>

@@ -2,7 +2,15 @@ package com.srisuk.carwashcustomer.di
 
 import com.srisuk.carwashcustomer.*
 import com.srisuk.carwashcustomer.data.NetworkHeaderInterceptor
-import com.srisuk.carwashcustomer.viewmodel.*
+import com.srisuk.carwashcustomer.presentation.addcar.AddMyCarViewModel
+import com.srisuk.carwashcustomer.presentation.changpassword.ChangePasswordViewModel
+import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarViewModel
+import com.srisuk.carwashcustomer.presentation.history.HistoryViewModel
+import com.srisuk.carwashcustomer.presentation.home.PackageViewModel
+import com.srisuk.carwashcustomer.presentation.login.LoginViewModel
+import com.srisuk.carwashcustomer.presentation.mycar.MyCarViewModel
+import com.srisuk.carwashcustomer.presentation.packageall.PackageAllViewModel
+import com.srisuk.carwashcustomer.presentation.profile.ProfileViewModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -37,4 +45,5 @@ val appModule = module {
     viewModel { MyCarViewModel(get ()) }
     viewModel { AddMyCarViewModel(get()) }
     viewModel { ChangePasswordViewModel(get()) }
+    viewModel { PackageAllViewModel(get()) }
 }
