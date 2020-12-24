@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.srisuk.carwashcustomer.ChooseMapActivity
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.base.BaseActivity
+import com.srisuk.carwashcustomer.model.MyCar
+import com.srisuk.carwashcustomer.model.PackageCar
 import com.srisuk.carwashcustomer.presentation.main.MainActivity
 import kotlinx.android.synthetic.main.activity_choose_car.*
 import kotlinx.android.synthetic.main.activity_choose_car.iv_arrow_back
@@ -20,7 +22,7 @@ class ChooseCarActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_car)
 
-        val packageId = intent.getIntExtra("packageId", 0)
+        val packages = intent.getParcelableExtra<PackageCar>("ChooseCarActivity")
 
         val adt = ChooseCarAdapter()
         recycler_view2.apply {
@@ -34,7 +36,8 @@ class ChooseCarActivity : BaseActivity() {
 
         adt.onClick = {
             val intent = Intent(baseContext, ChooseMapActivity::class.java).apply {
-                putExtra("packageId", packageId)
+                putExtra("ChooseMapActivity",packages)
+                putExtra("vehicle_registration",it.vehicleRegistration)
                 putExtra("carId", it.carId)
             }
             startActivity(intent);

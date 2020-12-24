@@ -2,11 +2,14 @@ package com.srisuk.carwashcustomer.presentation.choosepackage
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.versionedparcelable.ParcelUtils
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.model.PackageCar
 import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarActivity
 import com.srisuk.carwashcustomer.presentation.main.MainActivity
+import com.srisuk.carwashcustomer.util.extension.toast
 import kotlinx.android.synthetic.main.activity_choose_package.*
 
 class ChoosePackageActivity : AppCompatActivity() {
@@ -14,16 +17,17 @@ class ChoosePackageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_package)
 
-        val packageCar = intent.getParcelableExtra<PackageCar>("ChoosePackageActivity")
+        val packages = intent.getParcelableExtra<PackageCar>("ChoosePackageActivity")
 
-        if (packageCar != null) {
-            tv_1.text = packageCar.packagename
-            tv_2.text = packageCar.description
-            tv_3.text = "B" + packageCar.price
+        if (packages != null) {
+            tv_1.text = packages.packagename
+            tv_2.text = packages.description
+            tv_3.text = "B" + packages.price
+            toast("$packages")
         }
         btn_ChoosePackage.setOnClickListener {
             val intent = Intent(baseContext, ChooseCarActivity::class.java).apply {
-                putExtra("packageId", packageCar?.packageId)
+                putExtra("ChooseCarActivity",packages)
             }
             startActivity(intent);
         }

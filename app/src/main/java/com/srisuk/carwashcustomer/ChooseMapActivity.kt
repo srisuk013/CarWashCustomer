@@ -18,6 +18,7 @@ import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.base.BaseLocationActivity
 import com.srisuk.carwashcustomer.extension.animateCamera
+import com.srisuk.carwashcustomer.model.PackageCar
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
 import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarActivity
 import com.srisuk.carwashcustomer.presentation.main.MainActivity
@@ -43,9 +44,10 @@ class ChooseMapActivity : BaseLocationActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choose_map)
 
-        val packageId = intent.getIntExtra("packageId", 0)
+        val packages = intent.getParcelableExtra<PackageCar>("ChooseMapActivity")
         val carId = intent.getIntExtra("carId", 0)
-        mBookingJobRequest = BookingJobRequest(packageId = packageId, carId = carId)
+        val vehicle_registration=intent.getStringExtra("vehicle_registration")
+        mBookingJobRequest = BookingJobRequest(packageId = packages?.packageId, carId = carId)
 
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
@@ -94,9 +96,14 @@ class ChooseMapActivity : BaseLocationActivity() {
         }
 
         bt_choose_location.setOnClickListener {
-            toast("$mBookingJobRequest")
+            val intent = Intent(baseContext, BookingActivity::class.java).apply {
+                putExtra("BookingActivity", packages)
+                putExtra("vehicle_registration", vehicle_registration)
+                putExtra("carId", carId)
+                toast("$mBookingJobRequest")
+            }
+            startActivity(intent);
         }
-
     }
 
     private fun setMarkerChooseMap(latLng: LatLng, googleMap: GoogleMap) {
