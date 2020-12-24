@@ -15,18 +15,22 @@ class ChoosePackageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_choose_package)
 
         val packageCar = intent.getParcelableExtra<PackageCar>("ChoosePackageActivity")
+
         if (packageCar != null) {
             tv_1.text = packageCar.packagename
             tv_2.text = packageCar.description
             tv_3.text = "B" + packageCar.price
         }
         btn_ChoosePackage.setOnClickListener {
-            val intent = Intent(baseContext, ChooseCarActivity::class.java)
+            val intent = Intent(baseContext, ChooseCarActivity::class.java).apply {
+                putExtra("packageId", packageCar?.packageId)
+            }
             startActivity(intent);
         }
         iv_arrow_back.setOnClickListener {
             val intent = Intent(baseContext, MainActivity::class.java)
             startActivity(intent);
         }
+
     }
 }

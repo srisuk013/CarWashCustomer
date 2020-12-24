@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         style="@style/StyleCardView"
         android:layout_width="340dp"
         android:layout_height="150dp"
@@ -37,9 +38,10 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/bt_choose_car"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
+                style="@style/ButtonBlueLong"
                 android:text="Choose Car"
                 android:textColor="#FFFF"
                 android:textStyle="bold" />
