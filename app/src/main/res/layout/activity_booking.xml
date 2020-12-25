@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     android:background="#FFFF"
-    tools:context=".BookingActivity">
+    tools:context=".presentation.booking.BookingActivity">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -104,6 +104,7 @@
                     android:layout_gravity="center"
                     android:text="Vehicle registration" />
                 <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent">
                     <TextView
@@ -115,9 +116,9 @@
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/price"
-                        android:layout_marginLeft="140dp"
+                        android:layout_marginLeft="100dp"
                         android:layout_width="wrap_content"
-                        android:text="฿ 300.00"
+                        android:text="฿ 120.00"
                         android:textColor="#000000"
                         android:textSize="25sp"
                         android:layout_height="wrap_content"/>

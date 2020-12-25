@@ -22,8 +22,7 @@ class ChoosePackageActivity : AppCompatActivity() {
         if (packages != null) {
             tv_1.text = packages.packagename
             tv_2.text = packages.description
-            tv_3.text = "B" + packages.price
-            toast("$packages")
+            tv_3.text = "฿ " + packages.price +".00"
         }
         btn_ChoosePackage.setOnClickListener {
             val intent = Intent(baseContext, ChooseCarActivity::class.java).apply {

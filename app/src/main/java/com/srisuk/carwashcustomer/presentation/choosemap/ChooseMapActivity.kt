@@ -1,33 +1,24 @@
-package com.srisuk.carwashcustomer
+package com.srisuk.carwashcustomer.presentation.choosemap
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import com.google.android.libraries.places.api.Places
-import com.google.android.libraries.places.api.model.Place
-import com.google.android.libraries.places.widget.Autocomplete
-import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.base.BaseLocationActivity
-import com.srisuk.carwashcustomer.extension.animateCamera
 import com.srisuk.carwashcustomer.model.PackageCar
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
+import com.srisuk.carwashcustomer.presentation.booking.BookingActivity
 import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarActivity
-import com.srisuk.carwashcustomer.presentation.main.MainActivity
 import com.srisuk.carwashcustomer.util.extension.awaitLastLocation
-import com.srisuk.carwashcustomer.util.extension.locationFlow
 import com.srisuk.carwashcustomer.util.extension.toast
 import kotlinx.android.synthetic.main.activity_choose_map.*
 import kotlinx.android.synthetic.main.activity_choose_map.iv_arrow_back
-import kotlinx.android.synthetic.main.activity_choose_package.*
 import kotlinx.android.synthetic.main.item_map.*
 import kotlinx.coroutines.launch
 
@@ -46,7 +37,8 @@ class ChooseMapActivity : BaseLocationActivity() {
 
         val packages = intent.getParcelableExtra<PackageCar>("ChooseMapActivity")
         val carId = intent.getIntExtra("carId", 0)
-        val vehicle_registration=intent.getStringExtra("vehicle_registration")
+        val vehicleRegistration=intent.getStringExtra("vehicleRegistration")
+        val province=intent.getStringExtra("province")
         mBookingJobRequest = BookingJobRequest(packageId = packages?.packageId, carId = carId)
 
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -98,8 +90,9 @@ class ChooseMapActivity : BaseLocationActivity() {
         bt_choose_location.setOnClickListener {
             val intent = Intent(baseContext, BookingActivity::class.java).apply {
                 putExtra("BookingActivity", packages)
-                putExtra("vehicle_registration", vehicle_registration)
+                putExtra("vehicleRegistration", vehicleRegistration)
                 putExtra("carId", carId)
+                putExtra("province", province)
                 toast("$mBookingJobRequest")
             }
             startActivity(intent);

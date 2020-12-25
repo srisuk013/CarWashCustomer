@@ -11,6 +11,7 @@ class ChooseCarAdapter:BaseRecyclerView<MyCar>() {
     override fun getLayout(): Int = R.layout.item_choose_car
     override fun View.onBindViewHolder(data: MyCar) {
         tv_VehicleRegistration.text = data.vehicleRegistration
+        tv_province.text=data.province
     }
 
 

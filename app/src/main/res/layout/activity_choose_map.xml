@@ -6,9 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:id="@+id/root_layout"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    tools:context=".ChooseMapActivity">
+    tools:context=".presentation.choosemap.ChooseMapActivity">
     <RelativeLayout
         android:id="@+id/layout_toolbar"
         style="@style/MatchWrap">

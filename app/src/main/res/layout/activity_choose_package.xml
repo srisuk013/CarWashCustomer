@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/RelativeLayout">
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        style="@style/MatchWrap"
-        tools:ignore="MissingConstraints">
+        style="@style/MatchWrap">
 
         <androidx.appcompat.widget.Toolbar style="@style/Toolbar" />
 
@@ -60,10 +60,9 @@
         android:layout_below="@+id/Top"
         style="@style/StyleCardView"
         android:layout_centerHorizontal="true"
-        android:layout_width="339dp"
-        android:layout_height="420dp"
-        android:layout_margin="20dp"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
 
         <LinearLayout
             style="@style/LinearLayoutVertical"
@@ -79,21 +78,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="25dp" />
+                android:textStyle="bold"
+                android:textSize="25sp" />
 
             <TextView
+                android:textColor="#000000"
                 android:id="@+id/tv_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="25dp" />
+                android:textSize="14sp" />
+
 
             <TextView
+                android:layout_marginLeft="80dp"
+                android:text="ราคา"
                 android:id="@+id/tv_3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="25dp" />
+                android:textSize="25sp" />
 
         </LinearLayout>
 
@@ -113,7 +117,7 @@
         android:textStyle="bold" />
 
 
-</RelativeLayout>
+</LinearLayout>
 
 
 
