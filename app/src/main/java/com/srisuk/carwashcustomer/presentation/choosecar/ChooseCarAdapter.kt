@@ -13,8 +13,6 @@ class ChooseCarAdapter:BaseRecyclerView<MyCar>() {
         tv_VehicleRegistration.text = data.vehicleRegistration
         tv_province.text=data.province
     }
-
-
 }
 
 

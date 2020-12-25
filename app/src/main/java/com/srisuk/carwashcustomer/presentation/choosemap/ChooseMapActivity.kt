@@ -93,7 +93,8 @@ class ChooseMapActivity : BaseLocationActivity() {
                 putExtra("vehicleRegistration", vehicleRegistration)
                 putExtra("carId", carId)
                 putExtra("province", province)
-                toast("$mBookingJobRequest")
+                putExtra("latitude", mBookingJobRequest!!.latitude)
+                putExtra("longitude", mBookingJobRequest!!.longitude)
             }
             startActivity(intent);
         }

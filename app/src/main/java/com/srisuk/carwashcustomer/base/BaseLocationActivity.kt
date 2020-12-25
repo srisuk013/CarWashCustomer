@@ -7,6 +7,7 @@ import android.content.IntentFilter
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
+import com.srisuk.carwashcustomer.model.request.BookingJobRequest
 
 abstract class BaseLocationActivity : BaseActivity() {
 
@@ -74,5 +75,6 @@ abstract class BaseLocationActivity : BaseActivity() {
             LocationManager.GPS_PROVIDER
         )
     }
+
 
 }

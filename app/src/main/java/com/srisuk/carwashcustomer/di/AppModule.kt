@@ -3,6 +3,8 @@ package com.srisuk.carwashcustomer.di
 import com.srisuk.carwashcustomer.*
 import com.srisuk.carwashcustomer.data.NetworkHeaderInterceptor
 import com.srisuk.carwashcustomer.presentation.addcar.AddMyCarViewModel
+import com.srisuk.carwashcustomer.presentation.booking.BookingActivity
+import com.srisuk.carwashcustomer.presentation.booking.BookingViewModel
 import com.srisuk.carwashcustomer.presentation.changpassword.ChangePasswordViewModel
 import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarViewModel
 import com.srisuk.carwashcustomer.presentation.history.HistoryViewModel
@@ -46,4 +48,5 @@ val appModule = module {
     viewModel { AddMyCarViewModel(get()) }
     viewModel { ChangePasswordViewModel(get()) }
     viewModel { PackageAllViewModel(get()) }
+    viewModel { BookingViewModel (get())}
 }
