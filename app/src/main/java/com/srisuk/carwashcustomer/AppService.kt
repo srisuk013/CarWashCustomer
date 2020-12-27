@@ -1,11 +1,11 @@
 package com.srisuk.carwashcustomer
 
 import com.srisuk.carwashcustomer.model.CarModelResponse
-import com.srisuk.carwashcustomer.model.PackageAllResponse
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
 import com.srisuk.carwashcustomer.model.request.ChangePasswordRequest
 import com.srisuk.carwashcustomer.model.request.LoginRequest
 import com.srisuk.carwashcustomer.model.response.*
+import com.srisuk.carwashcustomer.model.response.packageall.PackageAllResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST

@@ -5,20 +5,25 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.LiveData
+import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.util.extension.toast
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
 
+
     private val job = SupervisorJob()
     private val exceptionHandler = CoroutineExceptionHandler { _, err ->
         toast("BaseFragment : exceptionHandler ${err.message}", Toast.LENGTH_LONG)
     }
+
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main + exceptionHandler
@@ -67,6 +72,38 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
     protected fun setToolbar(toolbar: Toolbar) {
         toolbar.title = ""
         setSupportActionBar(toolbar)
+    }
+    protected fun dialogContactAdmin(
+        @StringRes title: Int = R.string.contact_admin,
+        @StringRes message: Int = R.string.contact_admin_message,
+        contactAdmin: () -> Unit
+    ) = AlertDialog.Builder(this).apply {
+        setTitle(title)
+        setMessage(message)
+        setPositiveButton(android.R.string.ok) { _, _ ->
+            contactAdmin.invoke()
+        }
+        setNegativeButton(android.R.string.cancel) { dialog, _ ->
+            dialog.dismiss()
+        }
+        setCancelable(false)
+        show()
+    }
+    protected fun dialogLogout(
+        @StringRes title: Int = R.string.logout,
+        @StringRes message: Int = R.string.do_you_really_want_to_log_out,
+        logout: () -> Unit
+    ) = AlertDialog.Builder(this).apply {
+        setTitle(title)
+        setMessage(message)
+        setPositiveButton(android.R.string.cancel) { dialog, _ ->
+            dialog.dismiss()
+        }
+        setNegativeButton(android.R.string.ok) { _, _ ->
+            logout.invoke()
+        }
+        setCancelable(false)
+        show()
     }
 
 }

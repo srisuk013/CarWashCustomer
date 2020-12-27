@@ -1,11 +1,11 @@
 package com.srisuk.carwashcustomer
 
 import com.srisuk.carwashcustomer.model.CarModelResponse
-import com.srisuk.carwashcustomer.model.PackageAllResponse
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
 import com.srisuk.carwashcustomer.model.request.ChangePasswordRequest
 import com.srisuk.carwashcustomer.model.request.LoginRequest
 import com.srisuk.carwashcustomer.model.response.*
+import com.srisuk.carwashcustomer.model.response.packageall.PackageAllResponse
 
 interface AppReposistory{
     suspend fun login(login: LoginRequest): LoginResponse
@@ -20,6 +20,7 @@ interface AppReposistory{
     suspend fun packageall(): PackageAllResponse
     suspend fun booking(booking: BookingJobRequest):BaseResponse
 
+
 }
 class AppRepositoryIml(private var api: AppService):AppReposistory{
     override suspend fun login(login: LoginRequest) : LoginResponse =api.login(login)
@@ -31,7 +32,9 @@ class AppRepositoryIml(private var api: AppService):AppReposistory{
     override suspend fun modelbrand():BrandCarModelResponse =api.modelbrand()
     override suspend fun carmodel(BrandId:Int):CarModelResponse =api.listcarmodel(BrandId)
     override suspend fun changepassword(change: ChangePasswordRequest):BaseResponse=api.changepassword(change)
-    override suspend fun packageall():PackageAllResponse=api.packageall()
+    override suspend fun packageall(): PackageAllResponse =api.packageall()
     override suspend fun booking(booking: BookingJobRequest) :BaseResponse=api.booking(booking)
+
+
 
 }

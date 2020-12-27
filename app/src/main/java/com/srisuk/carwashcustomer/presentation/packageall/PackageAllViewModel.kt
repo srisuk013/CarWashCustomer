@@ -3,7 +3,7 @@ package com.srisuk.carwashcustomer.presentation.packageall
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.srisuk.carwashcustomer.AppReposistory
-import com.srisuk.carwashcustomer.model.PackageAllResponse
+import com.srisuk.carwashcustomer.model.response.packageall.PackageAllResponse
 import com.srisuk.carwashcustomer.viewmodel.BaseViewModel
 import kotlinx.coroutines.launch
 

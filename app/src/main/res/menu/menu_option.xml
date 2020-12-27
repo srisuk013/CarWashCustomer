@@ -2,6 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/option_change_mycar"
+        android:title="@string/change_mycar" />
+
+    <item
         android:id="@+id/option_change_profile"
         android:title="@string/change_profile" />
 
