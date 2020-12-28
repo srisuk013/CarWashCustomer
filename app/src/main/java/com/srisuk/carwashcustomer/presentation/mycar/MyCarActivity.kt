@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.base.BaseActivity
+import com.srisuk.carwashcustomer.presentation.addcar.AddMyCarActivity
 import com.srisuk.carwashcustomer.presentation.main.MainActivity
 import kotlinx.android.synthetic.main.activity_choose_car.*
 import kotlinx.android.synthetic.main.activity_my_car.*
@@ -30,6 +31,10 @@ class MyCarActivity : BaseActivity() {
         viewModel.choosecar()
         iv_arrow_back.setOnClickListener {
             val intent = Intent(baseContext, MainActivity::class.java)
+            startActivity(intent);
+        }
+        iv_addcar.setOnClickListener {
+            val intent = Intent(baseContext, AddMyCarActivity::class.java)
             startActivity(intent);
         }
     }

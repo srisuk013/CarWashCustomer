@@ -1,5 +1,6 @@
 package com.srisuk.carwashcustomer.presentation.addcar
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -9,7 +10,11 @@ import com.srisuk.carwashcustomer.base.BaseActivity
 import com.srisuk.carwashcustomer.base.onItemSelected
 import com.srisuk.carwashcustomer.model.ModelBrand
 import com.srisuk.carwashcustomer.model.response.Model
+import com.srisuk.carwashcustomer.presentation.main.MainActivity
+import com.srisuk.carwashcustomer.presentation.mycar.MyCarActivity
 import kotlinx.android.synthetic.main.activity_add_my_car.*
+import kotlinx.android.synthetic.main.activity_add_my_car.iv_arrow_back
+import kotlinx.android.synthetic.main.activity_my_car.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AddMyCarActivity : BaseActivity() {
@@ -47,6 +52,10 @@ class AddMyCarActivity : BaseActivity() {
             Brandcar = it
             Toast.makeText(baseContext, it.brandId.toString(), Toast.LENGTH_LONG).show()
             viewModel.listcarmodel(it.brandId)
+        }
+        iv_arrow_back.setOnClickListener {
+            val intent = Intent(baseContext, MyCarActivity::class.java)
+            startActivity(intent);
         }
 
     }
