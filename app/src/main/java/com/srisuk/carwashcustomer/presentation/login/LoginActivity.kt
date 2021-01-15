@@ -18,7 +18,6 @@ class LoginActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         viewModel.response.observe {
             if (it.success) {
                 val preferences = getSharedPreferences("file", Context.MODE_PRIVATE)

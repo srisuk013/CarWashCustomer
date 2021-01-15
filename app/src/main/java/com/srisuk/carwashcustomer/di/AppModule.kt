@@ -6,6 +6,7 @@ import com.srisuk.carwashcustomer.presentation.addcar.AddMyCarViewModel
 import com.srisuk.carwashcustomer.presentation.booking.BookingActivity
 import com.srisuk.carwashcustomer.presentation.booking.BookingViewModel
 import com.srisuk.carwashcustomer.presentation.changpassword.ChangePasswordViewModel
+import com.srisuk.carwashcustomer.presentation.chat.ChatViewModel
 import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarViewModel
 import com.srisuk.carwashcustomer.presentation.history.HistoryViewModel
 import com.srisuk.carwashcustomer.presentation.home.PackageViewModel
@@ -49,4 +50,5 @@ val appModule = module {
     viewModel { ChangePasswordViewModel(get()) }
     viewModel { PackageAllViewModel(get()) }
     viewModel { BookingViewModel (get())}
+    viewModel { ChatViewModel(get ()) }
 }

@@ -2,8 +2,10 @@ package com.srisuk.carwashcustomer.presentation.booking
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.base.BaseActivity
 import com.srisuk.carwashcustomer.model.PackageCar
@@ -13,6 +15,7 @@ import com.srisuk.carwashcustomer.presentation.changpassword.ChangePasswordViewM
 import com.srisuk.carwashcustomer.presentation.main.MainActivity
 import com.srisuk.carwashcustomer.util.extension.toast
 import kotlinx.android.synthetic.main.activity_booking.*
+import kotlinx.android.synthetic.main.dialog_employee_info.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookingActivity : BaseActivity() {
@@ -32,7 +35,7 @@ class BookingActivity : BaseActivity() {
             tv_package_id.text = mServiceUsageInformation.package_name
             tv_Vehicle_registration.text = mServiceUsageInformation.vehicle_registration+" "+province
             price.text = "฿ " +  mServiceUsageInformation.price+".00"
-//            toast("$mServiceUsageInformation")
+            toast("$mServiceUsageInformation")
         }
         viewModel.response.observe {
             Toast.makeText(baseContext, it.message, Toast.LENGTH_LONG).show()
@@ -42,10 +45,24 @@ class BookingActivity : BaseActivity() {
             viewModel.booking(BookingJobRequest(
                 packageId =packages?.packageId,carId=carId,longitude =longitude ,latitude =latitude
             ))
-            val intent = Intent(baseContext, MainActivity::class.java)
-            startActivity(intent);
+            callApi()
         }
 
+    }
+    private fun callApi() {
+        Handler().postDelayed({
+            FindEmployeeDialog().apply {
+                show(supportFragmentManager, null)
+
+                setListener {
+                    EmployeeInfoDialog().apply {
+                        arguments = bundleOf("employee" to "srisuk", "phone" to "0856099306")
+
+                        show(supportFragmentManager, null)
+                    }
+                }
+            }
+        }, 3_000)
     }
 
 }

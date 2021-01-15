@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RelativeLayout">
+
+    <androidx.cardview.widget.CardView style="@style/StyleCardView">
+
+        <LinearLayout
+            style="@style/LinearLayoutVertical"
+            android:layout_width="match_parent">
+
+            <androidx.cardview.widget.CardView style="@style/CardViewImageView">
+
+                <ImageView
+                    android:id="@+id/iv_photo_emp"
+                    style="@style/ImageViewPhoto" />
+
+            </androidx.cardview.widget.CardView>
+
+            <GridLayout
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/base_pow_four"
+                android:columnCount="2"
+                android:rowCount="3">
+
+                <ImageView
+                    style="@style/ImageViewIcon"
+                    android:layout_marginTop="@dimen/base_zero"
+                    android:src="@drawable/ic_person_gray" />
+
+                <TextView
+                    android:id="@+id/tv_full_name_emp"
+                    style="@style/TextViewLargeApplicationSub"
+                    android:layout_marginTop="@dimen/base_zero"
+                    android:text="@string/full_name" />
+
+                <ImageView
+                    style="@style/ImageViewIcon"
+                    android:src="@drawable/ic_phone_gray" />
+
+                <TextView
+                    android:id="@+id/tv_phone_emp"
+                    style="@style/TextViewLargeApplicationSub"
+                    android:text="@string/phone" />
+
+            </GridLayout>
+            <Button
+                android:id="@+id/bt_ok_emp"
+                android:layout_marginTop="20dp"
+                style="@style/ButtonBlueShort"
+                android:layout_width="250dp"
+                android:text="OK"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

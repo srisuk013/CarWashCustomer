@@ -3,6 +3,7 @@ package com.srisuk.carwashcustomer
 import com.srisuk.carwashcustomer.model.CarModelResponse
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
 import com.srisuk.carwashcustomer.model.request.ChangePasswordRequest
+import com.srisuk.carwashcustomer.model.request.ChatRequest
 import com.srisuk.carwashcustomer.model.request.LoginRequest
 import com.srisuk.carwashcustomer.model.response.*
 import com.srisuk.carwashcustomer.model.response.packageall.PackageAllResponse
@@ -42,4 +43,6 @@ interface AppService {
     suspend fun packageall(): PackageAllResponse
     @POST("api/job/BookingJob")
     suspend fun booking(@Body booking: BookingJobRequest):BaseResponse
+    @POST("api/Customer/Chathub")
+    suspend fun chat(@Body chat: ChatRequest):BaseResponse
 }
