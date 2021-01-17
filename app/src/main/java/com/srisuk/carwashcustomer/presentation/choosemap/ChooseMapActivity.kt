@@ -15,8 +15,7 @@ import com.srisuk.carwashcustomer.model.PackageCar
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
 import com.srisuk.carwashcustomer.presentation.booking.BookingActivity
 import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarActivity
-import com.srisuk.carwashcustomer.util.extension.awaitLastLocation
-import com.srisuk.carwashcustomer.util.extension.toast
+import com.srisuk.carwashcustomer.extension.awaitLastLocation
 import kotlinx.android.synthetic.main.activity_choose_map.*
 import kotlinx.android.synthetic.main.activity_choose_map.iv_arrow_back
 import kotlinx.android.synthetic.main.item_map.*

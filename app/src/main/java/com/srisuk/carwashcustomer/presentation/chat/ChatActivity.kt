@@ -2,6 +2,7 @@ package com.srisuk.carwashcustomer.presentation.chat
 
 import android.os.Bundle
 import android.widget.Toast
+import com.google.gson.Gson
 import com.microsoft.signalr.HubConnection
 import com.microsoft.signalr.HubConnectionBuilder
 import com.microsoft.signalr.HubConnectionState
@@ -9,11 +10,9 @@ import com.microsoft.signalr.TransportEnum
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.base.BaseActivity
 import com.srisuk.carwashcustomer.model.request.ChatRequest
-import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarViewModel
 import com.srisuk.carwashcustomer.util.extension.hideSoftKeyboard
 import kotlinx.android.synthetic.main.activity_chat.*
 import kotlinx.android.synthetic.main.activity_chat.root_layout
-import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChatActivity : BaseActivity() {
@@ -33,7 +32,8 @@ class ChatActivity : BaseActivity() {
         viewModel.response.observe {
             if (it.success) {
                 val message = edt_message.text.toString().trim()
-                hubConnection.send("ChatViewFromServer", message)
+                val toJson = Gson().toJson(ChatRequest("not",message))
+                hubConnection.send("ChatViewFromServer", toJson)
             }else{
                 Toast.makeText(baseContext, "ไม่สำเร็จ", Toast.LENGTH_SHORT).show()
             }
@@ -44,7 +44,8 @@ class ChatActivity : BaseActivity() {
 
             runOnUiThread {
 
-                tvMessage.text = tvMessage.text.toString() + "\n$message"
+                val fromJson = Gson().fromJson(message,ChatRequest::class.java)
+                tvMessage.text = tvMessage.text.toString() + "\n${fromJson.name} : ${fromJson.message}"
             }
 
         }, String::class.java)

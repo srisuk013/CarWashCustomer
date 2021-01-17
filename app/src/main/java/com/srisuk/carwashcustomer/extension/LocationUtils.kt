@@ -1,4 +1,4 @@
-package com.srisuk.carwashcustomer.util.extension
+package com.srisuk.carwashcustomer.extension
 
 import android.location.Location
 import android.os.Looper
