@@ -42,7 +42,7 @@ interface AppService {
     @GET("api/Customer/PackageAll")
     suspend fun packageall(): PackageAllResponse
     @POST("api/job/BookingJob")
-    suspend fun booking(@Body booking: BookingJobRequest):BaseResponse
+    suspend fun booking(@Body booking: BookingJobRequest):BaseUserInfoResponse
     @POST("api/Customer/Chathub")
     suspend fun chat(@Body chat: ChatRequest):BaseResponse
 }

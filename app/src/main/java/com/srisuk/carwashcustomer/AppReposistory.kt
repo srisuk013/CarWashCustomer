@@ -20,7 +20,7 @@ interface AppReposistory{
     suspend fun carmodel(BrandId:Int):CarModelResponse
     suspend fun changepassword(change: ChangePasswordRequest):BaseResponse
     suspend fun packageall(): PackageAllResponse
-    suspend fun booking(booking: BookingJobRequest):BaseResponse
+    suspend fun booking(booking: BookingJobRequest):BaseUserInfoResponse
     suspend fun chat(chat: ChatRequest):BaseResponse
 
 
@@ -36,6 +36,6 @@ class AppRepositoryIml(private var api: AppService):AppReposistory{
     override suspend fun carmodel(BrandId:Int):CarModelResponse =api.listcarmodel(BrandId)
     override suspend fun changepassword(change: ChangePasswordRequest):BaseResponse=api.changepassword(change)
     override suspend fun packageall(): PackageAllResponse =api.packageall()
-    override suspend fun booking(booking: BookingJobRequest) :BaseResponse=api.booking(booking)
+    override suspend fun booking(booking: BookingJobRequest) :BaseUserInfoResponse=api.booking(booking)
     override suspend fun chat(chat: ChatRequest):BaseResponse=api.chat(chat)
 }

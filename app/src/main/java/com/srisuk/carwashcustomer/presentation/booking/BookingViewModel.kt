@@ -4,14 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.srisuk.carwashcustomer.AppReposistory
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
-import com.srisuk.carwashcustomer.model.response.BaseResponse
-import com.srisuk.carwashcustomer.model.response.MyCarResponse
+import com.srisuk.carwashcustomer.model.response.BaseUserInfoResponse
 import com.srisuk.carwashcustomer.viewmodel.BaseViewModel
 import kotlinx.coroutines.launch
 
 class BookingViewModel(private  var reposistory: AppReposistory): BaseViewModel() {
-    private val _response = MutableLiveData<BaseResponse>()
-    val response: LiveData<BaseResponse>
+    private val _response = MutableLiveData<BaseUserInfoResponse>()
+    val response: LiveData<BaseUserInfoResponse>
         get() = _response
 
     fun booking(booking:BookingJobRequest) {

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.srisuk.carwashcustomer.R
+import com.srisuk.carwashcustomer.util.extension.setImageCircle
 import kotlinx.android.synthetic.main.dialog_employee_info.*
 
 class EmployeeInfoDialog : DialogFragment() {
@@ -23,10 +24,12 @@ class EmployeeInfoDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bundle = arguments?.getString("employee","0")
-        val bundle1 = arguments?.getString("employee","0")
+        val bundle = arguments?.getString("name","0")
+        val phone = arguments?.getString("phone","0")
+        val image = arguments?.getString("image","0")
         tv_full_name_emp.text=bundle
-
+        tv_phone_emp.text=phone
+        iv_photo_emp.setImageCircle(image)
 
         bt_ok_emp.setOnClickListener {
             dialog?.dismiss()

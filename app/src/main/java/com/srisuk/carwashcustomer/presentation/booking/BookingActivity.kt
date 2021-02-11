@@ -10,6 +10,7 @@ import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.base.BaseActivity
 import com.srisuk.carwashcustomer.model.PackageCar
 import com.srisuk.carwashcustomer.model.ServiceUsageInformation
+import com.srisuk.carwashcustomer.model.UserInfo
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
 import com.srisuk.carwashcustomer.presentation.changpassword.ChangePasswordViewModel
 import com.srisuk.carwashcustomer.presentation.main.MainActivity
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.dialog_employee_info.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookingActivity : BaseActivity() {
+    private var userinfo:UserInfo ? = null
     val viewModel by viewModel<BookingViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,7 @@ class BookingActivity : BaseActivity() {
         }
         viewModel.response.observe {
             Toast.makeText(baseContext, it.message, Toast.LENGTH_LONG).show()
+            userinfo =it.userInfo
         }
         viewModel.error.observeError()
         bt_booking.setOnClickListener {
@@ -49,6 +52,7 @@ class BookingActivity : BaseActivity() {
         }
 
     }
+
     private fun callApi() {
         Handler().postDelayed({
             FindEmployeeDialog().apply {
@@ -56,8 +60,9 @@ class BookingActivity : BaseActivity() {
 
                 setListener {
                     EmployeeInfoDialog().apply {
-                        arguments = bundleOf("employee" to "srisuk", "phone" to "0856099306")
-
+                        arguments = bundleOf("name" to userinfo?.fullName)
+                        arguments= bundleOf("phone" to userinfo?.phone)
+                        arguments= bundleOf("image" to userinfo?.image)
                         show(supportFragmentManager, null)
                     }
                 }
