@@ -1,10 +1,9 @@
 package com.srisuk.carwashcustomer.presentation.booking
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.base.BaseActivity
@@ -12,11 +11,8 @@ import com.srisuk.carwashcustomer.model.PackageCar
 import com.srisuk.carwashcustomer.model.ServiceUsageInformation
 import com.srisuk.carwashcustomer.model.UserInfo
 import com.srisuk.carwashcustomer.model.request.BookingJobRequest
-import com.srisuk.carwashcustomer.presentation.changpassword.ChangePasswordViewModel
-import com.srisuk.carwashcustomer.presentation.main.MainActivity
-import com.srisuk.carwashcustomer.util.extension.toast
+import com.srisuk.carwashcustomer.extension.toast
 import kotlinx.android.synthetic.main.activity_booking.*
-import kotlinx.android.synthetic.main.dialog_employee_info.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookingActivity : BaseActivity() {
@@ -40,8 +36,10 @@ class BookingActivity : BaseActivity() {
             toast("$mServiceUsageInformation")
         }
         viewModel.response.observe {
-            Toast.makeText(baseContext, it.message, Toast.LENGTH_LONG).show()
+            Toast.makeText(baseContext, userinfo.toString(), Toast.LENGTH_LONG).show()
             userinfo =it.userInfo
+
+            Log.d(TAG, "onCreate: $it")
         }
         viewModel.error.observeError()
         bt_booking.setOnClickListener {
@@ -54,20 +52,33 @@ class BookingActivity : BaseActivity() {
     }
 
     private fun callApi() {
-        Handler().postDelayed({
+//        Handler().postDelayed({
             FindEmployeeDialog().apply {
-                show(supportFragmentManager, null)
 
-                setListener {
-                    EmployeeInfoDialog().apply {
-                        arguments = bundleOf("name" to userinfo?.fullName)
-                        arguments= bundleOf("phone" to userinfo?.phone)
-                        arguments= bundleOf("image" to userinfo?.image)
-                        show(supportFragmentManager, null)
-                    }
-                }
+                show(supportFragmentManager, null)
+//                 if (success==true){
+                     setListener {
+                         EmployeeInfoDialog().apply {
+
+                             toast(userinfo.toString())
+
+                             arguments = bundleOf(
+                                 "fullName" to userinfo?.fullName,
+                                 "phone" to userinfo?.phone,
+                                 "image" to userinfo?.image
+                             )
+                             show(supportFragmentManager, null)
+                         }
+                     }
+//                 }else{
+//                     Toast.makeText(baseContext, "ไม่มีผู้ให้บริการขณะนี้", Toast.LENGTH_LONG).show()
+//                 }
+
             }
-        }, 3_000)
+//        }, 1_000)
+    }
+    companion object{
+        private const val TAG = "LoginActivity"
     }
 
 }

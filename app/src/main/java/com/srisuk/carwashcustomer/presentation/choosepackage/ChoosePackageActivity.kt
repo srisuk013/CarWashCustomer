@@ -2,14 +2,11 @@ package com.srisuk.carwashcustomer.presentation.choosepackage
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.versionedparcelable.ParcelUtils
 import com.srisuk.carwashcustomer.R
 import com.srisuk.carwashcustomer.model.PackageCar
 import com.srisuk.carwashcustomer.presentation.choosecar.ChooseCarActivity
 import com.srisuk.carwashcustomer.presentation.main.MainActivity
-import com.srisuk.carwashcustomer.util.extension.toast
 import kotlinx.android.synthetic.main.activity_choose_package.*
 
 class ChoosePackageActivity : AppCompatActivity() {

@@ -12,7 +12,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.LiveData
 import com.srisuk.carwashcustomer.R
-import com.srisuk.carwashcustomer.util.extension.toast
+import com.srisuk.carwashcustomer.extension.toast
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 

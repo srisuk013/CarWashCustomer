@@ -23,11 +23,10 @@ class EmployeeInfoDialog : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val bundle = arguments?.getString("name","0")
-        val phone = arguments?.getString("phone","0")
-        val image = arguments?.getString("image","0")
-        tv_full_name_emp.text=bundle
+        val fullName = arguments?.getString("fullName","")
+        val phone = arguments?.getString("phone","")
+        val image = arguments?.getString("image","")
+        tv_full_name_emp.text=fullName
         tv_phone_emp.text=phone
         iv_photo_emp.setImageCircle(image)
 
